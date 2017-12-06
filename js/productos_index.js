@@ -118,23 +118,41 @@ function Imegenes_Recomendadas() {
 
 // CARGA IMAGENES PORTAFOLIO
 function Fotos_Index() {
-  //setTimeout(function(){
-  //var j = 2;
-  var j = Math.floor((Math.random() * 10) + 2);
-  var estatica = j + 8;
-  while (j < estatica) {
-    imagenes += '<li class="span3">';
-    imagenes += '<div class="thumbnail">';
-    imagenes += '<img src="' + foto_Url[j] + '" onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')" style="width:200px;height:200px;" alt=""/>';
-    imagenes += '<div class="caption">';
-    imagenes += '<h5>' + nombre[j] + '</h5>';
-    imagenes += '<p> Tocamela toda </p>';
-    imagenes += '<h4 style="text-align:center"> </a>  <a class="btn btn-primary" h> &dollar;' + precio[j] + '</a></h4>';
-    imagenes += '</div>';
-    imagenes += '</div>';
-    imagenes += '</li>';
+  var imagenes_referidos = '';
+  var j = 2;
+  var No_productos = 0; // CANTIDAD DE PRODUCTOS A MOSTRAR
+  var completo = false;
+  var contador = 0;
+  while (j < recomendado.length && contador < 3) {
+    if (recomendado[j] == true) {
+      imagenes_referidos += '<div class="col-sm-4 mb-xs-30 wow fadeInUp" data-wow-delay="0.' + contador + 's">'
+                            + '<div class="team-item">'
+                              + '<div class="team-item-image">'
+                                + '<img src="' + foto_Url[j] + '" onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')" alt=""/>'
+                                + '<div class="team-item-detail">'
+                                  + '<h4 class="font-alt normal">Nice to meet!</h4>'
+                                  + '<p> Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.</p>'
+                                  + '<div class="team-social-links">'
+                                    + '<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>'
+                                    + '<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>'
+                                    + '<a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>'
+                                  + '</div>'
+                                + '</div>'
+                              + '</div>'
+                              + '<div class="team-item-descr font-alt">'
+                                + '<div class="team-item-name">'
+                                  + nombre[j]
+                                + '</div>'
+                                + '<div class="team-item-role">'
+                                  + '$' + precio[j]
+                                + '</div>'
+                              + '</div>'
+                            + '</div>'
+                          + '</div>';
+      No_productos++;
+      contador++;
+    }
     j++;
   }
-  // document.getElementById("fotos_index").innerHTML = imagenes + '</ul>';
-  //}, 3000);
+  document.getElementById("imagenes_recomendados").innerHTML = imagenes_referidos;
 }
