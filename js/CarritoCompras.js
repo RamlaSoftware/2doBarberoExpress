@@ -270,7 +270,7 @@ function Actualizar_HTML_carrito(){
                       + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
                   + '</td>'
               + '</tr>';
-        Precio_total += precio[j];
+        Precio_total += parseInt(precio[j]);
         j++;
       }else{
          table += '<tr>'
@@ -290,7 +290,7 @@ function Actualizar_HTML_carrito(){
                   + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
                   + '</td>'
                   + '</tr>';
-        Precio_total += precio[j];
+        Precio_total += parseInt(precio[j]);
         j++;
       }
     }
@@ -329,7 +329,7 @@ function Actualizar_HTML_carrito(){
                   +     '</div>'
 
                   +     '<div>'
-                  +       '<a href="" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>'
+                  +       '<a href="" class="btn btn-mod btn-round btn-large">Comprar</a>'
                   +     '</div>'
                   + '</div>';
 
