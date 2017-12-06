@@ -71,6 +71,51 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 }
 
 
+
+
+function Imegenes_Recomendadas() {
+  //setTimeout(function(){
+  // var imagenes_referidos = '<div class="item active">' + '<ul class="thumbnails">';
+  var imagenes_referidos = '';
+  var j = 2;
+  var No_productos = 0; // CANTIDAD DE PRODUCTOS A MOSTRAR
+  var completo = false;
+  var contador = 0;
+  while (j < recomendado.length && contador < 3) {
+    if (recomendado[j] == true) {
+      imagenes_referidos += '<div class="col-sm-4 mb-xs-30 wow fadeInUp" data-wow-delay="0.' + contador + 's">'
+                            + '<div class="team-item">'
+                              + '<div class="team-item-image">'
+                                + '<img src="' + foto_Url[j] + '" onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')" alt=""/>'
+                                + '<div class="team-item-detail">'
+                                  + '<h4 class="font-alt normal">Nice to meet!</h4>'
+                                  + '<p> Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.</p>'
+                                  + '<div class="team-social-links">'
+                                    + '<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>'
+                                    + '<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>'
+                                    + '<a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>'
+                                  + '</div>'
+                                + '</div>'
+                              + '</div>'
+                              + '<div class="team-item-descr font-alt">'
+                                + '<div class="team-item-name">'
+                                  + nombre[j]
+                                + '</div>'
+                                + '<div class="team-item-role">'
+                                  + '$' + precio[j]
+                                + '</div>'
+                              + '</div>'
+                            + '</div>'
+                          + '</div>';
+      No_productos++;
+      contador++;
+    }
+    j++;
+  }
+  document.getElementById("imagenes_recomendados").innerHTML = imagenes_referidos;
+  //}, 3000);
+}
+
 // CARGA IMAGENES PORTAFOLIO
 function Fotos_Index() {
   //setTimeout(function(){
@@ -91,68 +136,5 @@ function Fotos_Index() {
     j++;
   }
   // document.getElementById("fotos_index").innerHTML = imagenes + '</ul>';
-  //}, 3000);
-}
-
-function Imegenes_Recomendadas() {
-  //setTimeout(function(){
-  // var imagenes_referidos = '<div class="item active">' + '<ul class="thumbnails">';
-  var imagenes_referidos = '';
-  var j = 2;
-  var No_productos = 0; // CANTIDAD DE PRODUCTOS A MOSTRAR
-  var completo = false;
-  var contador = 0;
-  while (j < recomendado.length && contador < 3) {
-
-    if (recomendado[j] == true) {
-      // if (No_productos == 4) {
-      //   No_productos = 0;
-      //   imagenes_referidos += '</ul>' + '</div>';
-      //   imagenes_referidos += '<div class="item">' + '<ul class="thumbnails">';
-      // }
-      // imagenes_referidos += '<li class="span3">';
-      // imagenes_referidos += '<div class="thumbnail">';
-      // imagenes_referidos += '<i class="tag"></i>';
-      // imagenes_referidos += '<img src="' + foto_Url[j] + '" onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')" style="width:200px;height:200px;" alt=""/>';
-      // imagenes_referidos += '<div class="caption">';
-      // imagenes_referidos += '<h5>' + nombre[j] + '</h5>';
-      // imagenes_referidos += '<h4 onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')"><a class="btn"> Ver </a><span class="pull-right">$' + precio[j] + '</span></h4>';
-      // imagenes_referidos += '</div>';
-      // imagenes_referidos += '</div>';
-      // imagenes_referidos += '</li>';
-
-
-
-      imagenes_referidos += '<div class="col-sm-4 mb-xs-30 wow fadeInUp" data-wow-delay="0.1s">'
-                            + '<div class="team-item">'
-                              + '<div class="team-item-image">'
-                                + '<img src="' + foto_Url[j] + '" onclick="Ir_producto(' + "'" + keyProducto[j] + "'" + ')" alt=""/>'
-                                + '<div class="team-item-detail">'
-                                  + '<h4 class="font-alt normal">Nice to meet!</h4>'
-                                  + '<p> Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.</p>'
-                                  + '<div class="team-social-links">'
-                                    + '<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>'
-                                    + '<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>'
-                                    + '<a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>'
-                                  + '</div>'
-                                + '</div>'
-                              + '</div>'
-                              + '<div class="team-item-descr font-alt">'
-                                + '<div class="team-item-name">'
-                                  + nombre[j]
-                                + '</div>'
-                                + '<div class="team-item-role">'
-                                  + precio[j]
-                                + '</div>'
-                              + '</div>'
-                            + '</div>'
-                          + '</div>';
-
-      No_productos++;
-      contador++;
-    }
-    j++;
-  }
-  document.getElementById("imagenes_recomendados").innerHTML = imagenes_referidos;
   //}, 3000);
 }
