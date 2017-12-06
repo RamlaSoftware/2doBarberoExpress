@@ -6,7 +6,7 @@ var config = {
     storageBucket: "barberoexpress-8c13c.appspot.com",
     messagingSenderId: "634083713883"
 };
-firebase.initializeApp(config);
+//firebase.initializeApp(config);
 
 var firebaseRef = firebase.database().ref();
 var firebaseAuth = firebase.auth();
@@ -19,9 +19,15 @@ function Registrarse(){
 
 	var email = document.getElementById('input_email').value;
 	var password = document.getElementById("inputPassword1").value;
-	var nombre = document.getElementById('inputFname1').value;
+	var password2 = document.getElementById("inputPassword2").value;
+	var errores = false;
+	if(password.toString() != password2.toString()){
+		window.alert("Las contraseñas son distintas, asegurate de escribirlas bien");
+		return;
+	}
+	/*var nombre = document.getElementById('inputFname1').value;
 	var apellido = document.getElementById("inputLnam").value;
-
+	//carlos azaustre
 	var direccion = document.getElementById('address').value;
 	var direccion2 = document.getElementById("address2").value;
 	var ciudad = document.getElementById('city').value;
@@ -31,7 +37,8 @@ function Registrarse(){
 	var errores = false;
 	if(direccion2 == null) { direccion2 = "null";}
 	if(informacionAdicional == null) { informacionAdicional = "null";}
-	if(telefonoFijo == null) { telefonoFijo = "null";}
+	if(telefonoFijo == null) { telefonoFijo = "null";}*/
+
 
 	firebaseAuth.createUserWithEmailAndPassword(email, password).catch(function(error) {
 		var errorCode = error.code;
@@ -47,17 +54,35 @@ function Registrarse(){
 	        return;
 	    }
 	});
-	setTimeout(function(){
-                !errores ? InformacionBaseDatos(nombre, apellido, email, direccion, direccion2, ciudad, informacionAdicional, telefonoFijo, telefonoCelular) : console.log("problemas");
-            }, 1000);
+	console.log("funcion1 " +  email);
+	if(errores == false){
+		setTimeout(function(){ RREGLAR ESTO AQUI
+			console.log("funcion2" +  email);
+	        InformacionBaseDatos(email);
+	    }, 2000);
+	}else{
+		console.log("problemas");
+	}
 
 }
 
 
 //FUNCION DE AGREGAR INFORMACION A LA DB
-function InformacionBaseDatos(nombre, apellido, correo, direccion, direccion2, ciudad, informacionAdicional, telefonoFijo, telefonoCelular){
+function InformacionBaseDatos(correo){
 	var ref = firebaseRef.child("USUARIOS");
+	console.log("entramos")
 	ref.push({
+		correo: correo,
+		nombre: "null",
+		apellido: "null",
+		telefono: {telefonoCelular: "null", telefonoFijo: "null"},
+		direccion: {direccion: "null", direccion2: "null", ciudad:"null", informacionAdicional: "null"},
+		carritoCompras: {vaciar:"false"},
+		foto: "null",
+		historialCompras: "null"
+	});
+	console.log("Agregado");
+	/*ref.push({
 		correo: correo,
 		nombre: nombre,
 		apellido: apellido,
@@ -66,9 +91,9 @@ function InformacionBaseDatos(nombre, apellido, correo, direccion, direccion2, c
 		carritoCompras: {vaciar:"false"},
 		foto: "null",
 		historialCompras: "null"
-	});
+	});*/
 
-	CambiarVista();
+	//CambiarVista();
 }
 
 
@@ -82,7 +107,7 @@ function CambiarVista(){
                 window.location.href="index.html";
             }, 3000);
 	} else {
-	  alert("nadie ha iniciado seccion");
+	  alert("nadie ha iniciado seccion, R");
 	  return;
 	}
 }

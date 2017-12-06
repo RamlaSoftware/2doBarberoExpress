@@ -59,16 +59,21 @@ firebase.auth().onAuthStateChanged(function(user) {
 		 key = snapshot.key;
 		 ref = firebase.database().ref("USUARIOS/" + key);
      localStorage.setItem("USERKEY2", key);
-		 nombre = snapshot.val().nombre;
+     //DEBEMOS DE ESPERAR A TENER EL NAV BAR CON EL CARRITO DE COMPRAS PARA AÑADIR ESTO
+		 /*nombre = snapshot.val().nombre;
+     if(nombre.toString() == "null"){
+      nombre = "Mi cuenta";
+     }
 
-		 document.getElementById("Usuario").innerHTML = '<strong>' + nombre + '<strong>';
+		 document.getElementById("Usuario").innerHTML = '<strong>' + nombre + '<strong>';*/
 
     ref.child("carritoCompras").once('value', function(snapshot) {
     var count = 0;
     snapshot.forEach(function(childSnapshot) {
       count++;
     });
-      document.getElementById("numeroProductos").innerHTML = count;
+      //DEBEMOS DE ESPERAR A TENER EL NAV BAR CON EL CARRITO DE COMPRAR PARA AÑADIR ESTO
+      //document.getElementById("numeroProductos").innerHTML = count;
     });
 
 	});
@@ -85,7 +90,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 // -------------------- FUNCION PARA CERRAR SECCION --------------------
-
+//DEBEMOS DE ESPERAR A TENER EL NAV BAR CON EL CARRITO DE COMPRAR PARA AÑADIR ESTO
 function CerrarSeccion(){
 	firebase.auth().signOut().then(function() {
 		window.alert("seccion cerrada correctamente");

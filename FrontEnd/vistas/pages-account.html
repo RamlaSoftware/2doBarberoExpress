@@ -795,18 +795,21 @@
             
             
             <!-- Head Section -->
-            <section class="small-section bg-gray-lighter">
+            <section class="small-section bg-dark-lighter">
                 <div class="relative container align-left">
                     
                     <div class="row">
                         
                         <div class="col-md-8">
-                            <h1 class="hs-line-11 font-alt mb-0">Carrito de compras</h1>
+                            <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Mi cuenta</h1>
+                            <div class="hs-line-4 font-alt">
+                                Productos 100% originales, al mejor precio.
+                            </div>
                         </div>
                         
                         <div class="col-md-4 mt-30">
                             <div class="mod-breadcrumbs font-alt align-right">
-                                <a href="#">Inicio</a>&nbsp;/&nbsp;<a href="#">Productos</a>&nbsp;/&nbsp;<span>Carrito</span>
+                                <a href="#">Inicio</a>&nbsp;/&nbsp;<a href="#">Inicio de sesión</a>
                             </div>
                             
                         </div>
@@ -819,143 +822,119 @@
             
             <!-- Section -->
             <section class="page-section">
-                <div class="container">
+                <div class="container relative">
                     
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                    <!-- Nav Tabs -->
+                    <div class="align-center mb-40 mb-xxs-30">
+                        <ul class="nav nav-tabs tpl-minimal-tabs">
                             
-                            <table class="table table-striped shopping-cart-table" id="tablaCarritoCompras">
-                                <tr>
-                                    <th class="hidden-xs">
-                                        Photo
-                                    </th>
-                                    <th>
-                                        Product
-                                    </th>
-                                    <th>
-                                        Q-ty
-                                    </th>
-                                    <th>
-                                        Total
-                                    </th>
-                                    <th>
-                                        
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="hidden-xs">
-                                        <a href=""><img src="../images/shop/previews/shop-prev-5.jpg" alt=""/></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" title="">Polo Shirt With Argyle Print</a>
-                                    </td>
-                                    <td>
-                                        <form class="form">
-                                           <input type="number" class="input-sm" style="width: 60px;" min="1" max="100" value="1" />
-                                        </form>
-                                    </td>
-                                    <td>
-                                        $25.99
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="hidden-xs">
-                                        <a href=""><img src="../images/shop/previews/shop-prev-3.jpg" alt=""/></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" title="">Shirt With Mesh Sleeves</a>
-                                    </td>
-                                    <td>
-                                        <form class="form">
-                                           <input type="number" class="input-sm" style="width: 60px;" min="1" max="100" value="1" />
-                                        </form>
-                                    </td>
-                                    <td>
-                                        $30.00
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                                    </td>
-                                </tr>
-                            </table>
+                            <li class="active">
+                                <a href="#mini-one" data-toggle="tab">Iniciar sesión</a>
+                            </li>
                             
-                            <hr />
+                            <li>
+                                <a href="#mini-two" data-toggle="tab">Registrarse</a>
+                            </li>
                             
+                        </ul>
+                    </div>
+                    <!-- End Nav Tabs -->
+                    
+                    <!-- Tab panes -->
+                    <div class="tab-content tpl-minimal-tabs-cont section-text">
+                        
+                        <div class="tab-pane fade in active" id="mini-one">
+                            
+                            <!-- Login Form -->                            
                             <div class="row">
-                                <div class="col-sm-8">
-                                    <form action="#" class="form">
-                                        <input placeholder="Coupon code" class="input-sm mb-xs-10" style="width: 250px;" type="text" pattern=".{3,100}" required />
-                                        &nbsp;<button type="submit" class="btn btn-mod btn-round btn-gray btn-small mb-xs-10">Apply Coupon</button>
-                                    </form>
-                                </div>
-                                <div class="col-sm-4 text align-right">
+                                <div class="col-md-4 col-md-offset-4">
                                     
-                                    <div>
-                                        <a href="" class="btn btn-mod btn-gray btn-round btn-small">Update Cart</a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            
-                            <hr class="mb-60" />
-                            
-                            <div class="row" id="tabla_total">
-                                <div class="col-sm-6">
-                                    
-                                    <h3 class="small-title font-alt">Calculate Shipping</h3>
-                                    
-                                    <form action="#" class="form">
-                                        
-                                        <div class="mb-10">
-                                            <select class="input-md form-control">
-                                                <option>Select Country</option>
-                                                <option>France</option>
-                                                <option>Ukraine</option>
-                                                <option>USA</option>
-                                            </select>
+                                    <form class="form contact-form" id="contact_form">
+                                        <div class="clearfix">
+                                            
+                                            <!-- Username -->
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="inputEmail" class="input-md round form-control" placeholder="Correo electronico">
+                                            </div>
+                                            
+                                            <!-- Password -->
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="inputPassword" class="input-md round form-control" placeholder="Contraseña">
+                                            </div>
+                                                
                                         </div>
                                         
-                                        <div class="mb-10">
-                                            <input placeholder="State" class="input-md form-control" type="text" pattern=".{3,100}" />
-                                        </div>
-                                        
-                                        <div class="mb-10">
-                                            <input placeholder="Postcode / Zip" class="input-md form-control" type="text" pattern=".{3,100}" />
+                                        <div class="clearfix">
+                                            
+                                            <div class="cf-left-col">
+                                                
+                                                <!-- Inform Tip -->                                        
+                                                <div class="form-tip pt-20">
+                                                    <a href="">¿Olvidaste la contraseña?</a>
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                            <div class="cf-right-col">
+                                                
+                                                <!-- Send Button -->
+                                                <div class="align-right pt-10">
+                                                    <button class="submit_btn btn btn-mod btn-medium btn-round" id="login-btn"  onclick="IniciarSeccion()">Iniciar sesión</button>
+                                                </div>
+                                                
+                                            </div>
+                                            
                                         </div>
                                         
                                     </form>
                                     
                                 </div>
-                                <div class="col-sm-6 text align-right pt-10">
-                                    
-                                    
-                                    <div>
-                                        Cart subtotal: <strong>$45.95</strong>
-                                    </div>
-                                    
-                                    <div class="mb-10">
-                                        Shipping: <strong>$30.00</strong>
-                                    </div>
-                                    
-                                    <div class="lead mt-0 mb-30">
-                                        Order Total: <strong>$75.99</strong>
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
-                                    </div>
-                                    
-                                </div>
                             </div>
-                            
-                            
+                            <!-- End Login Form -->
                             
                         </div>
+                        
+                        <div class="tab-pane fade" id="mini-two">
+                            
+                            <!-- Registry Form -->                            
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-4">
+                                    
+                                    <form class="form contact-form" id="contact_form">
+                                        <div class="clearfix">
+                                            
+                                            <!-- Email -->
+                                            <div class="form-group">
+                                                <input type="text" name="Email" id="input_email" class="input-md round form-control" placeholder="Correo electronico">
+                                            </div>
+                                            
+                                            <!-- Password -->
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="inputPassword1" class="input-md round form-control" placeholder="Contraseña">
+                                            </div>
+                                            
+                                            <!-- Re-enter Password -->
+                                            <div class="form-group">
+                                                <input type="password" name="re-password" id="inputPassword2" class="input-md round form-control" placeholder="Vuelve a escribir la contraseña">
+                                            </div>
+                                                
+                                        </div>
+                                        
+                                        <!-- Send Button -->
+                                        <div class="pt-10">
+                                            <button class="submit_btn btn btn-mod btn-medium btn-round btn-full" id="reg-btn" onclick="Registrarse()">Registro</button>
+                                        </div>
+                                        
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            <!-- End Registry Form -->
+                            
+                        </div>
+                        
                     </div>
-                
+                    
                 </div>
             </section>
             <!-- End Section -->
@@ -967,7 +946,7 @@
                     
                     <!-- Footer Logo -->
                     <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.5s">
-                        <a href="#top"><img src="../images/logo-footer.png" width="78" height="36" alt="" /></a>
+                        <a href="#top"><img src="images/logo-footer.png" width="78" height="36" alt="" /></a>
                     </div>
                     <!-- End Footer Logo -->
                     
@@ -1033,7 +1012,7 @@
         <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
         <!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below 
         **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
-     <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>
         <script type="text/javascript" src="../js/gmap3.min.js"></script>
         <script type="text/javascript" src="../js/wow.min.js"></script>
         <script type="text/javascript" src="../js/masonry.pkgd.min.js"></script>
@@ -1043,12 +1022,12 @@
         <script type="text/javascript" src="../js/jquery.ajaxchimp.min.js"></script>        
         <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 
-         <!--BASE DE DATOS -->
+        <!--BASE DE DATOS -->
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 
         <!-- JS PERSONALIZADO -->
-         <script type="text/javascript" src="../../js/CarritoCompras.js"></script>
-
+        <script type="text/javascript" src="../../js/login.js"></script>
+        <script type="text/javascript" src="../../js/registro.js""></script>
         
     </body>
 </html>

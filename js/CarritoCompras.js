@@ -6,7 +6,7 @@ var config = {
     storageBucket: "barberoexpress-8c13c.appspot.com",
     messagingSenderId: "634083713883"
 };
-//firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 var firebaseRef = firebase.database().ref();
 var firebaseAuth = firebase.auth();
@@ -16,7 +16,8 @@ var actualizar = true;
 var refCarro;
 //firebase.database().ref("USUARIOS/" + key);
 //while(actualizar){ActualizarDatos();}
-var table = '<thead>' + '<tr>' + '<th>Producto</th>' + '<th>Caracteristicas</th>' + '<th>Marca</th>' + '<th>Cantidad/Actualizar</th>' + '<th>Precio</th>' + '<th>Descuento</th>' + '<th>Total</th>' + '</tr>' + '</thead>' + '<tbody>';
+var table = '<tr>' + '<th>Foto</th>' + '<th>Producto</th>' + '<th>Cantidad</th>' + '<th>Precio</th>' + '<th> </th>';
+var tabla_total;
 var rows = 1;
 var producto = 'themes/images/products/4.jpg';
 var nombre = [" ", " "];
@@ -51,14 +52,14 @@ if (user) {
 
 
 	ActualizarCarrito();
-	setTimeout(function(){
+	/*setTimeout(function(){
     //esto pone error
 		document.getElementById("ciudad").innerHTML = '<strong>'+ ciudad +'</strong>';
 		document.getElementById("direccion").innerHTML = '<strong>'+ direccion +'</strong>';
 		document.getElementById("direccion2").innerHTML = '<strong>'+ direccion2 +'</strong>';
 		document.getElementById("info_adicional").innerHTML = '<strong>'+ info_adicional +'</strong>';
 		document.getElementById("telefono").innerHTML = '<strong>'+ telefono +'</strong>';
-    }, 1000);
+    }, 1000);*/
 } else {
    window.alert("Inicia seccion primero");
    window.location.href="register.html";
@@ -218,82 +219,6 @@ function ActualizarCarrito(){
     }
     Actualizar_HTML_carrito();
   }, 700);
-
-
-	//setTimeout(function(){
-  /*function Actualizar_HTML_carrito(){
-  var j = 2;
-	var Precio_total = 0;
-	var descuento_total = 0;
-		while(j < nombre.length){
-      if(parseInt(cantidad[j]) > 1){
-        table += '<tr>';
-  			table += '<td>' + '<img src="' + foto_URL[j] + '" alt="Mountain View" style="width:60px;height:auto;">' + '</td>';
-  			table += '<td>' + nombre[j] +'</td>';
-  			table += '<td>' + marca[j] + '</td>';
-
-  			table += '<td>' + BotonCantidad(id_producto[j],cantidad[j]) + '</td>';
-  			table += '<td>$ ' + parseInt(precio[j]) + '</td>';
-  			table += '<td>' + descuento[j] + ' %</td>';
-  			total = (parseInt(precio[j]) - (parseInt(precio[j]) * parseInt(descuento[j])/100))* parseInt(cantidad[j]);
-  			table += '<td>' + total  + '</td>';
-  			table += '</tr>';
-  			Precio_total += total;
-  			descuento_total += parseInt(precio[j]) * parseInt(descuento[j])/100;
-  			total = 0;
-  			j++;
-      }else{
-  			table += '<tr>';
-  			table += '<td>' + '<img src="' + foto_URL[j] + '" alt="Mountain View" style="width:60px;height:auto;">' + '</td>';
-  			table += '<td>' + nombre[j] +'</td>';
-  			table += '<td>' + marca[j] + '</td>';
-  			table += '<td>' + BotonCantidad(id_producto[j]) + '</td>';
-  			table += '<td>$ ' + precio[j] + '</td>';
-  			table += '<td>' + descuento[j] + ' %</td>';
-        //¿por que está restando precio con precio? intento cambiar algo de seta liena y todo se ve a la mierda
-  			total = (parseInt(precio[j]) - (parseInt(precio[j]) * parseInt(descuento[j])/100))* parseInt(cantidad[j]);
-  			table += '<td>' + total + '</td>';
-  			table += '</tr>';
-  			Precio_total += total;
-  			descuento_total += parseInt(precio[j]) * parseInt(descuento[j])/100;
-  			total = 0;
-  			j++;
-      }
-		}
-
-
-			table += '<tr>';
-            table += '<td colspan="6" style="text-align:right">Precio total:	</td>';
-            table += '<td> $ '+Precio_total+'</td>';
-            table += '</tr>';
-			table += '<tr>';
-            table += '<td colspan="6" style="text-align:right">Descuento total:	</td>';
-            table += '<td> $ '+descuento_total+'</td>';
-            table += '</tr>';
-			table += '<tr>';
-            table += '<td colspan="6" style="text-align:right"><strong>TOTAL ($'+Precio_total+' - '+descuento_total+') =</strong></td>';
-            table += '<td class="label label-important" style="display:block"> <strong> $'+ (Precio_total - descuento_total) +' </strong></td>';
-            table += '</tr>';
-
-
-		document.getElementById("tablaCarritoCompras").innerHTML = '<table class="table table-bordered" id ="tablaCarritoCompras">' + table + '</table>';
-
-		table = '<thead>' + '<tr>' + '<th>Producto</th>' + '<th>Caracteristicas</th>' + '<th>Marca</th>' + '<th>Cantidad/Actualizar</th>' + '<th>Precio</th>' + '<th>Descuento</th>' + '<th>Total</th>' + '</tr>' + '</thead>' + '<tbody>';
-		rows = 1;
-		producto = 'themes/images/products/4.jpg';
-		nombre = [" ", " "];
-		marca = [" ", " "];
-		precio = [" ", " "];
-		foto_URL = [" ", " "];
-		descuento = [" ", " "];
-		total = 0;
-		id_producto = [" ", " "];
-  }*/
-
-	//}, 1500);
-
-
-
 }
 
 function actualizarCantidad() {
@@ -328,58 +253,86 @@ function Actualizar_HTML_carrito(){
   var descuento_total = 0;
     while(j < nombre.length){
       if(parseInt(cantidad[j]) >= 1){
-        table += '<tr>';
-        table += '<td>' + '<img src="' + foto_URL[j] + '" alt="Mountain View" style="width:60px;height:auto;">' + '</td>';
-        table += '<td>' + nombre[j] +'</td>';
-        table += '<td>' + marca[j] + '</td>';
-
-        table += '<td>' + BotonCantidad(id_producto[j],cantidad[j]) + '</td>';
-        table += '<td>$ ' + parseInt(precio[j]) + '</td>';
-        table += '<td>' + descuento[j] + ' %</td>';
-        total = (parseInt(precio[j]) - (parseInt(precio[j]) * parseInt(descuento[j])/100))* parseInt(cantidad[j]);
-        table += '<td>' + total  + '</td>';
-        table += '</tr>';
-        Precio_total += total;
-        descuento_total += parseInt(precio[j]) * parseInt(descuento[j])/100;
-        total = 0;
+        table += '<tr>'
+                  + '<td class="hidden-xs"> '
+                      + '<img src="' + foto_URL[j] + '" alt=""/>'
+                  + '</td>'
+                  + '<td>'
+                      + nombre[j]
+                  + '</td>'
+                  + '<td>'
+                      + BotonCantidad(id_producto[j],cantidad[j])
+                  + '</td>'
+                  + '<td>'
+                      + parseInt(precio[j])
+                  + '</td>'
+                  + '<td>'
+                      + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
+                  + '</td>'
+              + '</tr>';
+        Precio_total += precio[j];
         j++;
       }else{
-        table += '<tr>';
-        table += '<td>' + '<img src="' + foto_URL[j] + '" alt="Mountain View" style="width:60px;height:auto;">' + '</td>';
-        table += '<td>' + nombre[j] +'</td>';
-        table += '<td>' + marca[j] + '</td>';
-        table += '<td>' + BotonCantidad(id_producto[j]) + '</td>';
-        table += '<td>$ ' + precio[j] + '</td>';
-        table += '<td>' + descuento[j] + ' %</td>';
-        //¿por que está restando precio con precio? intento cambiar algo de seta liena y todo se ve a la mierda
-        total = (parseInt(precio[j]) - (parseInt(precio[j]) * parseInt(descuento[j])/100))* parseInt(cantidad[j]);
-        table += '<td>' + total + '</td>';
-        table += '</tr>';
-        Precio_total += total;
-        descuento_total += parseInt(precio[j]) * parseInt(descuento[j])/100;
-        total = 0;
+         table += '<tr>'
+                  + '<td class="hidden-xs"> '
+                  + '<img src="' + foto_URL[j] + '" alt=""/>'
+                  + '</td>'
+                  + '<td>'
+                  + nombre[j]
+                  + '</td>'
+                  + '<td>'
+                  + BotonCantidad(id_producto[j],cantidad[j])
+                  + '</td>'
+                  + '<td>'
+                  + parseInt(precio[j])
+                  + '</td>'
+                  + '<td>'
+                  + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
+                  + '</td>'
+                  + '</tr>';
+        Precio_total += precio[j];
         j++;
       }
     }
+      /*PARTE DE INFORMAICON PERSONAL*/
+      tabla_total = '<div class="col-sm-6">'
+                  +   '<h3 class="small-title font-alt">Calcular pedido</h3>'
+                  +   '<form action="#" class="form">'
+                  +     '<div class="mb-10">'
+                  +       '<select class="input-md form-control">'
+                  +         '<option>Selecciona ciudad</option>'
+                  +          '<option>Medellin</option>'
+                  +        '</select>'
+                  +     '</div>'
+                  +     '<div class="mb-10">'
+                  +       '<input placeholder="Direccion" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +     '</div>'
 
+                  +     '<div class="mb-10">'
+                  +       '<input placeholder="Nombre" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +     '</div>'
 
-      table += '<tr>';
-            table += '<td colspan="6" style="text-align:right">Precio total:  </td>';
-            table += '<td> $ '+Precio_total+'</td>';
-            table += '</tr>';
-      table += '<tr>';
-            table += '<td colspan="6" style="text-align:right">Descuento total: </td>';
-            table += '<td> $ '+descuento_total+'</td>';
-            table += '</tr>';
-      table += '<tr>';
-            table += '<td colspan="6" style="text-align:right"><strong>TOTAL ($'+Precio_total+' - '+descuento_total+') =</strong></td>';
-            table += '<td class="label label-important" style="display:block"> <strong> $'+ (Precio_total - descuento_total) +' </strong></td>';
-            table += '</tr>';
+                  +     '<div class="mb-10">'
+                  +       '<input placeholder="Apellido" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +     '</div>'
 
+                  +     '<div class="mb-10">'
+                  +       '<input placeholder="Telefono Celular" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +     '</div>'
 
-    document.getElementById("tablaCarritoCompras").innerHTML = '<table class="table table-bordered" id ="tablaCarritoCompras">' + table + '</table>';
+                  +   '</form>'
+                  + '</div>'
+      /*PARTE DE COSTO TOTAL*/   
+                  + '<div class="col-sm-6 text align-right pt-10">'
+                  +     '<div>'
+                  +       'Total pedido: <strong>$'+ Precio_total +'</strong>'
+                  +     '</div>'
 
-    table = '<thead>' + '<tr>' + '<th>Producto</th>' + '<th>Caracteristicas</th>' + '<th>Marca</th>' + '<th>Cantidad/Actualizar</th>' + '<th>Precio</th>' + '<th>Descuento</th>' + '<th>Total</th>' + '</tr>' + '</thead>' + '<tbody>';
-    rows = 1;
-    producto = 'themes/images/products/4.jpg';
+                  +     '<div>'
+                  +       '<a href="" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>'
+                  +     '</div>'
+                  + '</div>';
+
+    document.getElementById("tablaCarritoCompras").innerHTML = table;
+    document.getElementById("tabla_total").innerHTML = tabla_total;
   }
