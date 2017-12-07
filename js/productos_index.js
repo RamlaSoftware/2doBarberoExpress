@@ -155,29 +155,7 @@ function imagenesPortafolioGeneral(){
   var ubicacionImagen = ["images/portAfolio/barbera.jpg","images/portafolio/maquina.jpg","images/portafolio/tijeras.jpg","images/portafolio/brush.jpg","images/portafolio/crazyGel.jpg","images/portafolio/espuma.jpg"];
   var nombreImagen = ["BARBERAS/CUCHILLAS","MÁQUINAS","TIJERAS","SACUDIDORES/OTROS","CERAS/GEL","TÓNICOS/ESPUMAS"];
   var contador = 0;
-    imagenesPortafolio += '<div class="relative" id="ayudaJesus">'
-                        + '<h2 class="section-title font-alt mb-70 mb-sm-40">'
-                        + 'Productos'
-                        + '</h2>'
-                        + '<!-- Works Filter -->'
-                        + '<div class="works-filter font-alt align-center">'
-                        + '<!-- <a href="#" class="filter active" data-filter="*">Todos</a> -->'
-                        + '<!-- <a href="#branding" class="filter" data-filter=".branding">Máquinas</a>'
-                        + '<a href="#design" class="filter" data-filter=".design">Tijeras</a>'
-                        + '<a href="#photography" class="filter" data-filter=".photography">Photography</a> -->'
-                        + '<a href="#" class="filter active" data-filter="" onclick="imagenesPortafolioGeneral()">Resumen</a>'
-                        + '<a href="#barberasCuchillas" class="filter" data-filter=".barberasCuchillas" onclick="imagenesTipos()">Barberas/Cuchillas</a>'
-                        + '<a href="#maquinas" class="filter" data-filter=".maquinas" onclick="imagenesTipos()">Máquinas</a>'
-                        + '<a href="#tijeras" class="filter" data-filter=".tijeras">Tijeras</a>'
-                        + '<a href="#sacudidoresOtros" class="filter" data-filter=".sacudidoresOtros">Sacudidores/Otros</a>'
-                        + '<a href="#cerasGel" class="filter" data-filter=".cerasGel">Ceras/Gel</a>'
-                        + '<a href="#tonicosEspumas" class="filter" data-filter=".tonicosEspumas">Tónicos/Espumas</a>'
-                        + '</div>'
-                        + '<!-- End Works Filter -->'
-                        + '<!-- Works Grid -->'
-                        + '<div id="tipos">'
-                        + '<ul class="works-grid work-grid-3 work-grid-gut clearfix font-alt hover-white hide-titles" id="work-grid">'
-                        + '<!-- Work Item (External Page) -->'
+    imagenesPortafolio += '<!-- Work Item (External Page) -->'
                         + '<li class="work-item mix general barberasCuchillas">'
                         + '<a href="portfolio-single-1.html" class="work-ext-link">'
                         + '<div class="work-img">'
@@ -286,10 +264,7 @@ function imagenesPortafolioGeneral(){
                         + '</div>'
                         + '</li>'
                         + '<!-- End Work Item -->'
-                        + '</ul>'
-                        + '<!-- End Works Grid -->'
-                        + '</div>'
-                        + '</div>';
+                        ;
 
-  document.getElementById("portfolio").innerHTML = imagenesPortafolio;
+  document.getElementById("work-grid").innerHTML = imagenesPortafolio;
 }
