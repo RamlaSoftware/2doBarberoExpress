@@ -145,7 +145,7 @@
 
     <!-- Portfolio Section -->
     <section class="page-section pb-0" id="portfolio">
-      <div class="relative">
+      <div class="relative" id="ayudaJesus">
 
         <h2 class="section-title font-alt mb-70 mb-sm-40">
           Productos
@@ -157,9 +157,9 @@
           <!-- <a href="#branding" class="filter" data-filter=".branding">Máquinas</a>
           <a href="#design" class="filter" data-filter=".design">Tijeras</a>
           <a href="#photography" class="filter" data-filter=".photography">Photography</a> -->
-          <a href="#resumen" class="filter active" data-filter=".general">Resumen</a>
-          <a href="#barberasCuchillas" class="filter" data-filter=".barberasCuchillas">Barberas/Cuchillas</a>
-          <a href="#maquinas" class="filter" data-filter=".maquinas">Máquinas</a>
+          <a href="#" class="filter active" data-filter="" onclick="imagenesPortafolioGeneral()">Resumen</a>
+          <a href="#barberasCuchillas" class="filter" data-filter=".barberasCuchillas" onclick="imagenesTipos()">Barberas/Cuchillas</a>
+          <a href="#maquinas" class="filter" data-filter=".maquinas" onclick="imagenesTipos()">Máquinas</a>
           <a href="#tijeras" class="filter" data-filter=".tijeras">Tijeras</a>
           <a href="#sacudidoresOtros" class="filter" data-filter=".sacudidoresOtros">Sacudidores/Otros</a>
           <a href="#cerasGel" class="filter" data-filter=".cerasGel">Ceras/Gel</a>
@@ -169,146 +169,129 @@
         <!-- End Works Filter -->
 
         <!-- Works Grid -->
-        <ul class="works-grid work-grid-3 work-grid-gut clearfix font-alt hover-white hide-titles" id="work-grid">
+        <div id="tipos">
+          <ul class="works-grid work-grid-3 work-grid-gut clearfix font-alt hover-white hide-titles" id="work-grid">
 
-          <!-- Work Item (External Page) -->
-          <li class="work-item mix general">
-            <a href="portfolio-single-1.html" class="work-ext-link">
-              <div class="work-img">
-                <img class="work-img" src="images/portAfolio/barbera.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Barberas/Cuchillas</h3>
-                <div class="work-descr">
-                  La mejor calidad
+            <!-- Work Item (External Page) -->
+            <li class="work-item mix general barberasCuchillas">
+              <a href="portfolio-single-1.html" class="work-ext-link">
+                <div class="work-img">
+                  <img class="work-img" src="images/portAfolio/barbera.jpg" alt="Work" />
                 </div>
-              </div>
-            </a>
-            <div class="">
-              <p class="text-center">BARBERAS/CUCHILLAS</p>
-            </div>
-          </li>
-          <!-- End Work Item -->
-
-          <!-- Work Item (Lightbox) -->
-          <li class="work-item mix general">
-            <a href="images/portafolio/maquina.jpg" class="work-lightbox-link mfp-image">
-              <div class="work-img">
-                <img src="images/portafolio/maquina.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Máquinas</h3>
-                <div class="work-descr">
-                  Las mejores marcas
+                <div class="work-intro">
+                  <h3 class="work-title">Barberas/Cuchillas</h3>
+                  <div class="work-descr">
+                    La mejor calidad
+                  </div>
                 </div>
+              </a>
+              <div class="">
+                <p class="text-center">BARBERAS/CUCHILLAS</p>
               </div>
-            </a>
-            <div class="">
-              <p class="text-center">MÁQUINAS</p>
-              <!-- <p class="text-center">TÓNICO <br> $2.500</p> -->
-            </div>
-          </li>
-          <!-- End Work Item -->
+            </li>
+            <!-- End Work Item -->
 
-          <!-- Work Item (External Page) -->
-          <li class="work-item mix general">
-            <a href="portfolio-single-1.html" class="work-ext-link">
-              <div class="work-img">
-                <img class="work-img" src="images/portafolio/tijeras.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Tijeras</h3>
-                <div class="work-descr">
-                  Diseños especiales
+            <!-- Work Item (Lightbox) -->
+            <li class="work-item mix general">
+              <a href="images/portafolio/maquina.jpg" class="work-lightbox-link mfp-image">
+                <div class="work-img">
+                  <img src="images/portafolio/maquina.jpg" alt="Work" />
                 </div>
-              </div>
-            </a>
-            <div class="">
-              <p class="text-center">TIJERAS</p>
-            </div>
-          </li>
-          <!-- End Work Item -->
-
-          <!-- Work Item (External Page) -->
-          <li class="work-item mix general">
-            <a href="portfolio-single-1.html" class="work-ext-link">
-              <div class="work-img">
-                <img class="work-img" src="images/portafolio/brush.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Sacudidor/Otros</h3>
-                <div class="work-descr">
-                  El mejor complemento para tu trabajo.
+                <div class="work-intro">
+                  <h3 class="work-title">Máquinas</h3>
+                  <div class="work-descr">
+                    Las mejores marcas
+                  </div>
                 </div>
+              </a>
+              <div class="">
+                <p class="text-center">MÁQUINAS</p>
+                <!-- <p class="text-center">TÓNICO <br> $2.500</p> -->
               </div>
-            </a>
-            <div class="">
-              <p class="text-center">SACUDIDORES/OTROS</p>
-            </div>
-          </li>
-          <!-- End Work Item -->
+            </li>
+            <!-- End Work Item -->
 
-          <!-- Work Item (External Page) -->
-          <li class="work-item mix general">
-            <a href="portfolio-single-1.html" class="work-ext-link">
-              <div class="work-img">
-                <img class="work-img" src="images/portafolio/crazyGel.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Ceras/Gel</h3>
-                <div class="work-descr">
-                  Excelentes fragancias y calidad.
+            <!-- Work Item (External Page) -->
+            <li class="work-item mix general">
+              <a href="portfolio-single-1.html" class="work-ext-link">
+                <div class="work-img">
+                  <img class="work-img" src="images/portafolio/tijeras.jpg" alt="Work" />
                 </div>
-              </div>
-            </a>
-            <div class="">
-              <p class="text-center">CERAS/GEL</p>
-            </div>
-          </li>
-          <!-- End Work Item -->
-
-          <!-- Work Item (External Page) -->
-          <li class="work-item mix general">
-            <a href="portfolio-single-1.html" class="work-ext-link">
-              <div class="work-img">
-                <img class="work-img" src="images/portafolio/espuma.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Tónicos/Espumas</h3>
-                <div class="work-descr">
-                  Las mejores marcas de América
+                <div class="work-intro">
+                  <h3 class="work-title">Tijeras</h3>
+                  <div class="work-descr">
+                    Diseños especiales
+                  </div>
                 </div>
+              </a>
+              <div class="">
+                <p class="text-center">TIJERAS</p>
               </div>
-            </a>
-            <div class="">
-              <p class="text-center">TÓNICOS/ESPUMAS</p>
-            </div>
-          </li>
-          <!-- End Work Item -->
+            </li>
+            <!-- End Work Item -->
 
-
-
-          <!-- Work Item (Lightbox) -->
-          <!-- <li class="work-item mix design branding">
-            <a href="images/portfolio/full-project-3.jpg" class="work-lightbox-link mfp-image">
-              <div class="work-img">
-                <img src="images/portfolio/projects-6.jpg" alt="Work" />
-              </div>
-              <div class="work-intro">
-                <h3 class="work-title">Young Man</h3>
-                <div class="work-descr">
-                  Lightbox
+            <!-- Work Item (External Page) -->
+            <li class="work-item mix general">
+              <a href="portfolio-single-1.html" class="work-ext-link">
+                <div class="work-img">
+                  <img class="work-img" src="images/portafolio/brush.jpg" alt="Work" />
                 </div>
+                <div class="work-intro">
+                  <h3 class="work-title">Sacudidor/Otros</h3>
+                  <div class="work-descr">
+                    El mejor complemento para tu trabajo.
+                  </div>
+                </div>
+              </a>
+              <div class="">
+                <p class="text-center">SACUDIDORES/OTROS</p>
               </div>
-            </a>
-            <div class="">
-              <p class="text-center">CARCEL <br> $2.500</p>
-            </div>
-          </li> -->
-          <!-- End Work Item -->
+            </li>
+            <!-- End Work Item -->
 
-        </ul>
-        <!-- End Works Grid -->
+            <!-- Work Item (External Page) -->
+            <li class="work-item mix general">
+              <a href="portfolio-single-1.html" class="work-ext-link">
+                <div class="work-img">
+                  <img class="work-img" src="images/portafolio/crazyGel.jpg" alt="Work" />
+                </div>
+                <div class="work-intro">
+                  <h3 class="work-title">Ceras/Gel</h3>
+                  <div class="work-descr">
+                    Excelentes fragancias y calidad.
+                  </div>
+                </div>
+              </a>
+              <div class="">
+                <p class="text-center">CERAS/GEL</p>
+              </div>
+            </li>
+            <!-- End Work Item -->
+
+            <!-- Work Item (External Page) -->
+            <li class="work-item mix general">
+              <a href="portfolio-single-1.html" class="work-ext-link">
+                <div class="work-img">
+                  <img class="work-img" src="images/portafolio/espuma.jpg" alt="Work" />
+                </div>
+                <div class="work-intro">
+                  <h3 class="work-title">Tónicos/Espumas</h3>
+                  <div class="work-descr">
+                    Las mejores marcas de América
+                  </div>
+                </div>
+              </a>
+              <div class="">
+                <p class="text-center">TÓNICOS/ESPUMAS</p>
+              </div>
+            </li>
+            <!-- End Work Item -->
+
+
+          </ul>
+          <!-- End Works Grid -->
+        </div>
+
 
       </div>
     </section>
