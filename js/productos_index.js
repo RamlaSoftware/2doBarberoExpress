@@ -124,7 +124,7 @@ function imagenesTipos(){
   var noProductos = 5; // 5 - 2 = 3
   var completo = false;
   while(j < noProductos){
-    var aleatorio = Math.floor((Math.random() * 15) + 1);
+    var aleatorio = Math.floor((Math.random() * 18) + 2);
     imagenesTipo +='<li class="work-item mix general">'
                     + '<a href="portfolio-single-1.html" class="work-ext-link">'
                       + '<div class="work-img">'
