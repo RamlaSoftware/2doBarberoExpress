@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         
         <!-- Favicons -->
-        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="shortcut icon" href="../images/favicon.png">
 
         <!-- CSS -->
         <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -240,7 +240,7 @@
                             
                             <!-- Item With Sub -->
                             <li>
-                                <a href="#" class="mn-has-sub active">Pages <i class="fa fa-angle-down"></i></a>
+                                <a href="#" class="mn-has-sub">Pages <i class="fa fa-angle-down"></i></a>
                                 
                                 <!-- Sub Multilevel -->
                                 <ul class="mn-sub mn-has-multi">
@@ -708,7 +708,7 @@
                             
                             <!-- Item With Sub -->
                             <li>
-                                <a href="#" class="mn-has-sub">Shop <i class="fa fa-angle-down"></i></a>
+                                <a href="#" class="mn-has-sub active">Shop <i class="fa fa-angle-down"></i></a>
                                 
                                 <!-- Sub -->
                                 <ul class="mn-sub to-left">
@@ -720,7 +720,7 @@
                                         <a href="shop-columns-3col.html">3 Columns</a>
                                     </li>
                                     <li>
-                                        <a href="shop-columns-4col.html">4 Columns</a>
+                                        <a href="buscar-4columnas.html">4 Columns</a>
                                     </li>
                                     <li>
                                         <a href="shop-single.html">Single Product</a>
@@ -743,29 +743,13 @@
                             <li>
                                 <a href="#" class="mn-has-sub"><i class="fa fa-search"></i> Search</a>
                                 
-                                <ul class="mn-sub">
-                                    
-                                    <li>
-                                        <div class="mn-wrap">
-                                            <form method="post" class="form">
-                                                <div class="search-wrap">
-                                                    <button class="search-button animate" type="submit" title="Start Search">
-                                                        <i class="fa fa-search"></i>
-                                                    </button>
-                                                    <input type="text" class="form-control search-field" placeholder="Search...">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    
-                                </ul>
-                                
+                                                     
                             </li>
                             <!-- End Search -->
                             
                             <!-- Cart -->
                             <li>
-                                <a href="#"><i class="fa fa-shopping-cart"></i> Cart(0)</a>
+                                <a href="#" class="active"><i class="fa fa-shopping-cart"></i> Cart(1)</a>
                             </li>
                             <!-- End Cart -->
                             
@@ -795,18 +779,20 @@
             
             
             <!-- Head Section -->
-            <section class="small-section bg-gray-lighter">
+            <section class="page-section bg-dark-alfa-30" data-background="../images/full-width-images/section-bg-10.jpg">
                 <div class="relative container align-left">
-                    
                     <div class="row">
                         
                         <div class="col-md-8">
-                            <h1 class="hs-line-11 font-alt mb-0">Carrito de compras</h1>
+                            <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Productos</h1>
+                            <div class="hs-line-4 font-alt">
+                                Tenemos los productos de la mejor calidad, al mejor precio.
+                            </div>
                         </div>
                         
                         <div class="col-md-4 mt-30">
                             <div class="mod-breadcrumbs font-alt align-right">
-                                <a href="#">Inicio</a>&nbsp;/&nbsp;<a href="#">Productos</a>&nbsp;/&nbsp;<span>Carrito</span>
+                                <a href="#">Inicio</a>&nbsp;/&nbsp;<a href="#">Productos</a>
                             </div>
                             
                         </div>
@@ -816,149 +802,618 @@
             </section>
             <!-- End Head Section -->
             
-            
+             <div class="search-wrap">
+                <button class="search-button animate" type="submit" title="Start Search" onclick="Buscar()">
+                    <i class="fa fa-search"></i>
+                </button>
+                <input type="text" class="form-control search-field" id="srchFld" placeholder="Buscar..." style="background-color: black;">
+            </div>     
             <!-- Section -->
             <section class="page-section">
-                <div class="container">
+                <div class="container relative">
                     
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                        
+                        <!-- Content -->
+                        <div class="col-sm-12">
                             
-                            <table class="table table-striped shopping-cart-table" id="tablaCarritoCompras">
-                                <tr>
-                                    <th class="hidden-xs">
-                                        Photo
-                                    </th>
-                                    <th>
-                                        Product
-                                    </th>
-                                    <th>
-                                        Q-ty
-                                    </th>
-                                    <th>
-                                        Total
-                                    </th>
-                                    <th>
-                                        
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="hidden-xs">
-                                        <a href=""><img src="../images/shop/previews/shop-prev-5.jpg" alt=""/></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" title="">Polo Shirt With Argyle Print</a>
-                                    </td>
-                                    <td>
-                                        <form class="form">
-                                           <input type="number" class="input-sm" style="width: 60px;" min="1" max="100" value="1" />
-                                        </form>
-                                    </td>
-                                    <td>
-                                        $25.99
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="hidden-xs">
-                                        <a href=""><img src="../images/shop/previews/shop-prev-3.jpg" alt=""/></a>
-                                    </td>
-                                    <td>
-                                        <a href="#" title="">Shirt With Mesh Sleeves</a>
-                                    </td>
-                                    <td>
-                                        <form class="form">
-                                           <input type="number" class="input-sm" style="width: 60px;" min="1" max="100" value="1" />
-                                        </form>
-                                    </td>
-                                    <td>
-                                        $30.00
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <hr />
-                            
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <form action="#" class="form">
-                                        <input placeholder="Coupon code" class="input-sm mb-xs-10" style="width: 250px;" type="text" pattern=".{3,100}" required />
-                                        &nbsp;<button type="submit" class="btn btn-mod btn-round btn-gray btn-small mb-xs-10">Apply Coupon</button>
+                            <!-- Shop options -->
+                            <div class="clearfix mb-40">
+                                
+                                <div class="left section-text mt-10">
+                                    Mostrando Xo - X1 de X productos
+                                </div>
+                                
+                                <div class="right">
+                                    <form method="post" action="#" class="form">
+                                        <select class="input-md round">
+                                            <option>Ordenar</option>
+                                            <option>Ordenar por precio: Bajo a alto</option>
+                                            <option>Ordenar por precio: Alto a bajo</option>
+                                        </select>
                                     </form>
                                 </div>
-                                <div class="col-sm-4 text align-right">
+                                
+                            </div>
+                            <!-- End Shop options -->
+                            
+                            <div class="row multi-columns-row" id="blockView">
+                        
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
                                     
-                                    <div>
-                                        <a href="" class="btn btn-mod btn-gray btn-round btn-small">Update Cart</a>
+                                    <div class="post-prev-img">
+                                        
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-1.jpg" alt="" /></a>
+                                        
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">G-Star Polo Applique Jersey</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$94.75</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                     
                                 </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-2.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$28.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-3.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Longline Long Sleeve</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$39.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-4.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$85.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-5.jpg" alt="" /></a>
+                                        
+                                        <div class="intro-label">
+                                            <span class="label label-danger bg-red">Sale</span>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">G-Star Polo Applique Jersey</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <del>$150.00</del>
+                                        &nbsp;
+                                        <strong>$94.75</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-6.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$28.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-7.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Longline Long Sleeve</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$39.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-8.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$85.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-9.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$28.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-10.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$28.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-11.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Longline Long Sleeve</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$39.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
+                                <!-- Shop Item -->
+                                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                                    
+                                    <div class="post-prev-img">
+                                        <a href="shop-single.html"><img src="../images/shop/shop-prev-12.jpg" alt="" /></a>
+                                    </div>
+                                    
+                                    <div class="post-prev-title font-alt align-center">
+                                        <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
+                                    </div>
+
+                                    <div class="post-prev-text align-center">
+                                        <strong>$85.99</strong>
+                                    </div>
+                                    
+                                    <div class="post-prev-more align-center">
+                                        <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    </div>
+                                    
+                                </div>
+                                <!-- End Shop Item -->
+                                
                             </div>
                             
-                            <hr class="mb-60" />
-                            
-                            <div class="row" id="tabla_total">
-                                <div class="col-sm-6">
-                                    
-                                    <h3 class="small-title font-alt">Calculate Shipping</h3>
-                                    
-                                    <form action="#" class="form">
-                                        
-                                        <div class="mb-10">
-                                            <select class="input-md form-control">
-                                                <option>Select Country</option>
-                                                <option>France</option>
-                                                <option>Ukraine</option>
-                                                <option>USA</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="mb-10">
-                                            <input placeholder="State" class="input-md form-control" type="text" pattern=".{3,100}" />
-                                        </div>
-                                        
-                                        <div class="mb-10">
-                                            <input placeholder="Postcode / Zip" class="input-md form-control" type="text" pattern=".{3,100}" />
-                                        </div>
-                                        
-                                    </form>
-                                    
-                                </div>
-                                <div class="col-sm-6 text align-right pt-10">
-                                    
-                                    
-                                    <div>
-                                        Cart subtotal: <strong>$45.95</strong>
-                                    </div>
-                                    
-                                    <div class="mb-10">
-                                        Shipping: <strong>$30.00</strong>
-                                    </div>
-                                    
-                                    <div class="lead mt-0 mb-30">
-                                        Order Total: <strong>$75.99</strong>
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
-                                    </div>
-                                    
-                                </div>
+                            <!-- Pagination -->
+                            <div class="pagination" id = "paginas">
+                                <a href=""><i class="fa fa-angle-left"></i></a>
+                                <a href="" class="active">1</a>
+                                <a href="">2</a>
+                                <a href="">3</a>
+                                <a class="no-active">...</a>
+                                <a href="">9</a>
+                                <a href=""><i class="fa fa-angle-right"></i></a>
                             </div>
-                            
-                            
+                            <!-- End Pagination -->
                             
                         </div>
+                        <!-- End Content -->
+                        
+                        
                     </div>
-                
+                    
                 </div>
             </section>
             <!-- End Section -->
+            
+            
+            <!-- Divider -->
+            <hr class="mt-0 mb-0"/>
+            <!-- End Divider -->
+            
+            
+            <!-- Widgets Section -->
+           <!-- <section class="page-section">
+                <div class="container relative">
+                    
+                    <div class="row multi-columns-row">
+                        
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            
+                            
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Cart</h5>
+                                
+                                <div class="widget-body">
+                                    <ul class="clearlist widget-posts">
+                                        
+                                        
+                                        <li class="clearfix">
+                                            <a href=""><img src="../images/shop/previews/shop-prev-5.jpg" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href="#" title="">Polo Shirt With Argyle Print</a>
+                                                <div>
+                                                    1 x $25.99
+                                                </div>
+                                                <div>
+                                                    <a href=""><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        
+                                         
+                                        <li class="clearfix">
+                                            <a href=""><img src="../images/shop/previews/shop-prev-4.jpg" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href="#" title="">Shirt With Mesh Sleeves</a>
+                                                <div>
+                                                    1 x $30.00
+                                                </div>
+                                                <div>
+                                                    <a href=""><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                        
+                                    </ul>
+                                    
+                                    <div class="clearfix mt-20">
+                                        
+                                        <div class="left mt-10">
+                                            Subtotal: <strong>$35.00</strong>
+                                        </div>
+                                        
+                                        <div class="right">
+                                            <a href="#" class="btn btn-mod btn-border btn-small btn-round">View Cart</a>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            
+                            
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Tags</h5>
+                                
+                                <div class="widget-body">
+                                    <div class="tags">
+                                        <a href="">Design</a>
+                                        <a href="">Portfolio</a>
+                                        <a href="">Digital</a>
+                                        <a href="">Branding</a>
+                                        <a href="">Theme</a>
+                                        <a href="">Clean</a>
+                                        <a href="">UI & UX</a>
+                                        <a href="">Love</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           
+                            
+                            
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Text widget</h5>
+                                
+                                <div class="widget-body">
+                                    <div class="widget-text clearfix">
+                                        
+                                        <img src="../images/user-avatar.png" alt="" width="70" class="img-circle left img-left">
+                                        
+                                        Consectetur adipiscing elit. Quisque magna ante eleifend eleifend. 
+                                        Purus ut dignissim consectetur, nulla erat ultrices purus, ut consequat sem elit non sem.
+                                        Quisque magna ante eleifend eleifend. 
+                                    
+                                    </div>
+                                </div>
+                                
+                            </div>                            
+                            
+                            
+                        </div>
+                        
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            
+                            
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Categories</h5>
+                                
+                                <div class="widget-body">
+                                    <ul class="clearlist widget-menu">
+                                        <li>
+                                            <a href="#" title="">Branding</a>
+                                            <small>
+                                                - 7
+                                            </small>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Design</a>
+                                            <small>
+                                                - 15
+                                            </small>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Development</a>
+                                            <small>
+                                                - 3
+                                            </small>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Photography</a>
+                                            <small>
+                                                - 5
+                                            </small>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">Other</a>
+                                            <small>
+                                                - 1
+                                            </small>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                           
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Filter by price</h5>
+                                
+                                <div class="widget-body">
+                                    <form method="post" action="#" class="form">
+                                        
+                                        <div class="row mb-20">
+                                            <div class="col-xs-6">
+                                                <input type="text" name="price-from" id="price-from" class="input-md round form-control" placeholder="From, $" maxlength="100">
+                                            </div>
+                                            
+                                            <div class="col-xs-6">
+                                                <input type="text" name="price-to" id="price-to" class="input-md round form-control" placeholder="To, $" maxlength="100">
+                                            </div>
+                                        </div>
+                                        
+                                        <button class="btn btn-mod btn-medium btn-full btn-round">Filter</button>
+                                        
+                                    </form>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            
+                            
+                            <div class="widget">
+                                
+                                <h5 class="widget-title font-alt">Bestsellers</h5>
+                                
+                                <div class="widget-body">
+                                    <ul class="clearlist widget-posts">
+                                        
+                                        
+                                        <li class="clearfix">
+                                            <a href=""><img src="../images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href="#" title="">Polo Shirt With Argyle Print</a>
+                                                <div>
+                                                    <del>
+                                                        50.00
+                                                    </del>&nbsp;
+                                                    $25.99
+                                                </div>
+                                                <div>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                        
+                                        
+                                        <li class="clearfix">
+                                            <a href=""><img src="../images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
+                                                <div>
+                                                    $75.00
+                                                </div>
+                                                <div>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    
+
+                                        <li class="clearfix">
+                                            <a href=""><img src="../images/shop/previews/shop-prev-3.jpg" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href="#" title="">Esprit Pique Polo Shirt</a>
+                                                <div>
+                                                    $30.99
+                                                </div>
+                                                <div>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </section> -->
+            <!-- End Widgets Section -->
             
             
             <!-- Foter -->
@@ -986,12 +1441,12 @@
                         
                         <!-- Copyright -->
                         <div class="footer-copy font-alt">
-                            <a href="http://themeforest.net/user/theme-guru/portfolio" target="_blank">&copy; Barbero Express 2017</a>.
+                            <a href="http://themeforest.net/user/theme-guru/portfolio" target="_blank">&copy; Rhythm 2017</a>.
                         </div>
                         <!-- End Copyright -->
                         
                         <div class="footer-made">
-                            Hecho para los mejores barberos de la ciudad.
+                            Made with love for great people.
                         </div>
                         
                     </div>
@@ -1033,7 +1488,7 @@
         <script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
         <!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below 
         **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
-     <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script> -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>
         <script type="text/javascript" src="../js/gmap3.min.js"></script>
         <script type="text/javascript" src="../js/wow.min.js"></script>
         <script type="text/javascript" src="../js/masonry.pkgd.min.js"></script>
@@ -1043,11 +1498,13 @@
         <script type="text/javascript" src="../js/jquery.ajaxchimp.min.js"></script>        
         <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
 
-         <!--BASE DE DATOS -->
+        <!--BASE DE DATOS -->
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 
         <!-- JS PERSONALIZADO -->
-         <script type="text/javascript" src="../../js/CarritoCompras.js"></script>
+         <script type="text/javascript" src="../../js/login.js"></script>
+
+        <script type="text/javascript" src="../../js/productos.js"></script>
 
         
     </body>

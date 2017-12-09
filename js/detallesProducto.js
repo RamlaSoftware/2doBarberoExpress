@@ -29,6 +29,7 @@ var prod_id;
 SearchRef.on("value", function(snapshot) {
 	//ACTUALIZAMOS HTML CON EL PRODUCTO ELEGIDO (EL QUE VIENE DEL PROD_KEY)
 	document.getElementById("nombreProducto").innerHTML = snapshot.val().nombre;
+  document.getElementById("nombre_producto").innerHTML = snapshot.val().nombre;
 	document.getElementById("nombreProducto2").innerHTML = snapshot.val().nombre;
 	document.getElementById("marcaProducto").innerHTML = snapshot.val().marca;
 	document.getElementById("descripcion_producto").innerHTML = snapshot.val().descripcion;

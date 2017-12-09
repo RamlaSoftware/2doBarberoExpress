@@ -34,9 +34,9 @@ firebase.initializeApp(config);*/
     //SI QUEREMOS AGREGAR MAS VALORES, PONERLOS ARRIBA
   	var refProductos = firebase.database().ref("PRODUCTOS");
     // ---------------------------------- BUSQUEDA DE PRODUCTOS--------------------------------------------
-  	//var EstamosBuscando = JSON.parse(localStorage.getItem("NOMBRE_BS"));
-    var EstamosBuscando = "";
-    if(EstamosBuscando.length > 2 && EstamosBuscando[3] != " "){
+  	var EstamosBuscando = JSON.parse(localStorage.getItem("NOMBRE_BS"));
+    //var EstamosBuscando = "";
+    if(EstamosBuscando!= null && EstamosBuscando.length > 2 && EstamosBuscando[3] != " "){
       foto_Url = JSON.parse(localStorage.getItem("FOTO_URL_BS"));
       nombre = JSON.parse(localStorage.getItem("NOMBRE_BS"));
       precio = JSON.parse(localStorage.getItem("PRECIO_BS"));
@@ -46,7 +46,7 @@ firebase.initializeApp(config);*/
       busqueda = true;
 
     }else{
- // ---------------------------------- DEBERIA DE HACER ESTE QUERING SOLO 1 VEZ Y PASARLO POR LOCALSTORAGE (+ VELCIDAD )--------------------------------------------
+ // ---------------------------------- DEBERIA DE HACER ESTE QUERING SOLO 1 VEZ Y PASARLO POR LOCALSTORAGE (+ VELCIDAD )-------------------------------------------- carlos azabustre
       for(var r = 0; r < rows; r++)
     	{
     		refProductos.orderByChild("id").on("child_added", function(snapshot){
@@ -73,7 +73,7 @@ firebase.initializeApp(config);*/
 
       }
       ActualizarBuscador();
-  }, 700);
+  }, 2000); //700 firefox -> chrome 2000
 
   	//setTimeout(function(){
 
@@ -95,7 +95,7 @@ firebase.initializeApp(config);*/
         imagenes += '<strong>$ '+ precio[j] + '</strong>';
         imagenes += '</div>';
         imagenes += '<div class="post-prev-more align-center">';
-        imagenes += ' <a class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Añadir al carro</a>'
+        imagenes += ' <a class="btn btn-mod btn-gray btn-round" onclick="Ir_producto('+"'"+ keyProducto[j]+"'"+')"> <i class="fa fa-shopping-cart"></i> Añadir al carro </a>';
     		//imagenes +=	'<h4 style="text-align:center"> <a class="btn" onclick="Ir_producto('+"'"+ keyProducto[j]+"'"+')"> <i class="icon-zoom-in"></i> <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&dollar;'+precio[j]+'</a></h4>';
     		imagenes +=	'</div>';
     		imagenes +=	'</div>';
@@ -160,6 +160,5 @@ function cambiar_pagina(pagina_actual){
         j++;
       }
       document.getElementById("blockView").innerHTML = imagenes;
-      console.log("cambio de pagina exitoso: " + pagina_actual);
 
 }

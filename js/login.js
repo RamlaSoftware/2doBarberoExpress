@@ -116,8 +116,8 @@ function AgregarAlCarrito(){
     var marca = $("#marcaProducto").text();
     var descuento = "0";
     var foto = $('#imagenProducto').attr('src');
-    var labelProductosCarro = Number($("#numeroProductos").text()) + 1;
-    document.getElementById("numeroProductos").innerHTML = labelProductosCarro;
+    /*var labelProductosCarro = Number($("#numeroProductos").text()) + 1;
+    document.getElementById("numeroProductos").innerHTML = labelProductosCarro;*/ //ESTO ES PARA MODIFICAR EL LABEL DEL CARRO
 
    ref.child("carritoCompras").push({
       nombre: nombre,
@@ -130,7 +130,7 @@ function AgregarAlCarrito(){
     });
     window.alert("Producto Agregado");
     //window.location.href="product_summary.html";
-    window.open("product_summary.html");
+    window.open("carritoCompras.html");
   } else {
     window.alert("Inicia seccion primero");
   }
@@ -143,7 +143,7 @@ function Ir_producto(prodKey){
    no pierda su busqueda y pueda seguir viendo productos
   */
   //window.location.href="product_details.html";
-  window.open("shop-single.html");
+  window.open("productoSimple.html");
 
 }
 
@@ -203,7 +203,7 @@ function Buscar(){
       localStorage.setItem("PRECIO_BS", JSON.stringify(precio));
       localStorage.setItem("DESCRIPCION_BS", JSON.stringify(descripcion));
       localStorage.setItem("KEYPRODUCTO_BS", JSON.stringify(keyProducto));
-      window.location.href="products.html";
+      window.location.href="buscar-4columnas.html";
     }, 1000);
 
   }else{
@@ -212,7 +212,7 @@ function Buscar(){
     localStorage.setItem("PRECIO_BS", JSON.stringify(precio));
     localStorage.setItem("DESCRIPCION_BS", JSON.stringify(descripcion));
     localStorage.setItem("KEYPRODUCTO_BS", JSON.stringify(keyProducto));
-    window.location.href="products.html";
+    window.location.href="buscar-4columnas.html";
   }
 }
 

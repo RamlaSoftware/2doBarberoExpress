@@ -29,6 +29,7 @@ var cantidad = [" ", " "];
 var total = 0;
 var id_producto = [" ", " "];
 var keyArreglo = [" ", " "];
+var ciudad, direccion, nombre_pedido, apellido, telefono, informacion_adicional;
 
 var botonCantidad = '<div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button" onclick="EliminarArticulo()"><i class="icon-remove icon-white"></button></div>';
 
@@ -40,14 +41,15 @@ if (user) {
 	refCarro = firebase.database().ref("USUARIOS/" + userkey + "/" + "carritoCompras");
 	var refUsuario = firebase.database().ref("USUARIOS/" + userkey);
 	//DATOS DE ENVIO
-	var ciudad, direccion, direccion2, info_adicional, telefono
+	
 
     refUsuario.once("value", function(snapshot){
     	ciudad = snapshot.val().direccion.ciudad;
     	direccion = snapshot.val().direccion.direccion;
-    	direccion2 = snapshot.val().direccion.direccion2;
-    	info_adicional = snapshot.val().direccion.informacionAdicional;
+    	nombre_pedido = snapshot.val().nombre;
+    	apellido = snapshot.val().apellido;
     	telefono = snapshot.val().telefono.telefonoCelular;
+      informacion_adicional = snapshot.val().direccion.informacionAdicional;
     });
 
 
@@ -67,13 +69,14 @@ if (user) {
 });
 
 function EliminarArticulo(id){
-
+  id = parseInt(id);
 	refCarro.orderByChild("id").equalTo(id).on("child_added", function(snapshot) {
-		console.log("adentro");
 		id = snapshot.key;
 		refCarro.child(id).remove();
 	});
-	ActualizarCarrito();
+  setTimeout(function(){
+	 ActualizarCarrito();
+  }, 1000);
 }
 
 function BuscarEnCarrito(id){
@@ -188,9 +191,12 @@ function ActualizarCarrito(){
     foto_URL = [" ", " "];
     descuento = [" ", " "];
     total = 0;
+    table = "";
     id_producto = [" ", " "];
     cantidad = [" ", " "];
     keyArreglo = [" ", " "];
+    document.getElementById("tablaCarritoCompras").innerHTML = "";
+    document.getElementById("tabla_total").innerHTML = "";
 
       refCarro.orderByChild("id").on("child_added", function(snapshot){
   			//producto.push(snapshot.val().foto);
@@ -255,7 +261,7 @@ function Actualizar_HTML_carrito(){
       if(parseInt(cantidad[j]) >= 1){
         table += '<tr>'
                   + '<td class="hidden-xs"> '
-                      + '<img src="' + foto_URL[j] + '" alt=""/>'
+                      + '<img src="' + foto_URL[j] + '" style= "width:200px; height: 200px" alt=""/>'
                   + '</td>'
                   + '<td>'
                       + nombre[j]
@@ -267,7 +273,7 @@ function Actualizar_HTML_carrito(){
                       + parseInt(precio[j])
                   + '</td>'
                   + '<td>'
-                      + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
+                      + '<div onClick="EliminarArticulo(' + "'" + id_producto[j] + "'" + ')"><i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span><div>'
                   + '</td>'
               + '</tr>';
         Precio_total += parseInt(precio[j]);
@@ -287,7 +293,7 @@ function Actualizar_HTML_carrito(){
                   + parseInt(precio[j])
                   + '</td>'
                   + '<td>'
-                  + '<i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span>'
+                  + '<div onClick="EliminarArticulo(' + "'" + id_producto[j] + "'" + ')"><i class="fa fa-times"></i> <span class="hidden-xs">Eliminar</span><div>'
                   + '</td>'
                   + '</tr>';
         Precio_total += parseInt(precio[j]);
@@ -299,25 +305,29 @@ function Actualizar_HTML_carrito(){
                   +   '<h3 class="small-title font-alt">Calcular pedido</h3>'
                   +   '<form action="#" class="form">'
                   +     '<div class="mb-10">'
-                  +       '<select class="input-md form-control">'
+                  +       '<select class="input-md form-control" id="ciudadPedido">'
                   +         '<option>Selecciona ciudad</option>'
-                  +          '<option>Medellin</option>'
+                  +          '<option>medellin</option>'
                   +        '</select>'
                   +     '</div>'
                   +     '<div class="mb-10">'
-                  +       '<input placeholder="Direccion" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +       '<input placeholder="Direccion" class="input-md form-control" type="text" pattern=".{3,100}" id="direccionPedido"/>'
                   +     '</div>'
 
                   +     '<div class="mb-10">'
-                  +       '<input placeholder="Nombre" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +       '<input placeholder="Nombre" class="input-md form-control" type="text" pattern=".{3,100}" id="nombrePedido"/>'
                   +     '</div>'
 
                   +     '<div class="mb-10">'
-                  +       '<input placeholder="Apellido" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +       '<input placeholder="Apellido" class="input-md form-control" type="text" pattern=".{3,100}" id="apellidoPedido"/>'
                   +     '</div>'
 
                   +     '<div class="mb-10">'
-                  +       '<input placeholder="Telefono Celular" class="input-md form-control" type="text" pattern=".{3,100}" />'
+                  +       '<input placeholder="Telefono Celular" class="input-md form-control" type="text" pattern=".{3,100}" id="telefonoPedido"/>'
+                  +     '</div>'
+
+                  +     '<div class="mb-10">'
+                  +       '<textarea rows="4" cols="50" placeholder="Como podemos llegar?, Nombre del lugar?" class="input-md form-control"  id="informacionAdicionalPedido"></textarea>'
                   +     '</div>'
 
                   +   '</form>'
@@ -328,11 +338,83 @@ function Actualizar_HTML_carrito(){
                   +       'Total pedido: <strong>$'+ Precio_total +'</strong>'
                   +     '</div>'
 
-                  +     '<div>'
-                  +       '<a href="" class="btn btn-mod btn-round btn-large">Comprar</a>'
+                  +     '<div class="btn btn-mod btn-round btn-large" onclick="comprar()">'
+                  +       'Comprar'
                   +     '</div>'
                   + '</div>';
 
+
     document.getElementById("tablaCarritoCompras").innerHTML = table;
     document.getElementById("tabla_total").innerHTML = tabla_total;
+    llenarDatosPedido();
+  }
+
+  function llenarDatosPedido(){
+    if(ciudad != "null"){document.getElementById("ciudadPedido").options[0].innerHTML = ciudad;}
+    if(direccion != "null"){document.getElementById("direccionPedido").value = direccion;}
+    if(nombre_pedido != "null"){document.getElementById("nombrePedido").value = nombre_pedido;}
+    if(apellido != "null"){document.getElementById("apellidoPedido").value = apellido;}
+    if(telefono != "null"){document.getElementById("telefonoPedido").value = telefono;}
+  }
+
+  function comprar(){
+    var datosCompletos = true;
+    _ciudad = document.getElementById("ciudadPedido");
+    ciudad = _ciudad.options[_ciudad.selectedIndex].value;
+    if (ciudad != "medellin"){
+      ciudad = "medellin";
+    }
+
+    direccion = document.getElementById("direccionPedido").value;
+     if (direccion == ""){
+      window.alert("Porfavor llena la direccion");
+      datosCompletos = false;
+    }
+    nombre_pedido = document.getElementById("nombrePedido").value;
+     if (nombre_pedido == ""){
+      window.alert("Porfavor llena el nombre");
+      datosCompletos = false;
+    }
+    apellido = document.getElementById("apellidoPedido").value;
+     if (apellido == ""){
+      window.alert("Porfavor llena el apellido");
+      datosCompletos = false;
+    }
+    telefono = document.getElementById("telefonoPedido").value;
+     if (telefono == ""){
+      window.alert("Porfavor llena el telefono");
+      datosCompletos = false;
+    }
+    informacion_adicional = document.getElementById("informacionAdicionalPedido").value;
+    if (informacion_adicional == ""){
+      informacion_adicional = "";
+    }
+
+    //enviar valores nuevos al bodegero y a la base de datos
+    if(datosCompletos == true){
+      //direccion
+      refUsuario.child("direccion").update({
+        ciudad: ciudad,
+        direccion: direccion,
+        informacion_adicional: informacion_adicional
+      });
+
+      /*FALTA BODEGERO*/
+
+      //datos basicos
+      refUsuario.update({
+        nombre: nombre_pedido,
+        apellido: apellido
+      });
+
+      /*FALTA BODEGERO*/
+
+      //telefono
+      refUsuario.child("telefono").update({
+        telefonoCelular: telefono
+      });
+
+      /*FALTA BODEGERO*/
+
+    }
   }
